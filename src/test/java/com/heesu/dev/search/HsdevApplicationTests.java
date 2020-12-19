@@ -1,4 +1,4 @@
-package com.heesu.dev.demo;
+package com.heesu.dev.search;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

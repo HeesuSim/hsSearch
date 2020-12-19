@@ -1,4 +1,4 @@
-package com.heesu.dev.demo;
+package com.heesu.dev.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
