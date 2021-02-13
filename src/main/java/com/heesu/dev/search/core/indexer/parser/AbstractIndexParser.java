@@ -1,7 +1,8 @@
 package com.heesu.dev.search.core.indexer.parser;
 
 
-import com.heesu.dev.search.entity.index.RequestIndexData;
+import com.heesu.dev.search.entity.index.CommonRequestData;
+import com.heesu.dev.search.entity.index.RequestListData;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
@@ -31,5 +32,5 @@ public abstract class AbstractIndexParser {
         }
     }
 
-    public abstract List<Document> parseData(RequestIndexData indexData);
+    public abstract List<Document> parseData(CommonRequestData indexData);
 }

@@ -1,5 +1,5 @@
 package com.heesu.dev.search.core.indexer.parser;
 
-public enum AbstractIndexParserType {
+public enum IndexParserType {
     Basic, Excel, CSV
 }

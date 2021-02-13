@@ -1,6 +1,7 @@
 package com.heesu.dev.search.core.indexer.parser;
 
-import com.heesu.dev.search.entity.index.RequestIndexData;
+import com.heesu.dev.search.entity.index.CommonRequestData;
+import com.heesu.dev.search.entity.index.RequestListData;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 
@@ -22,11 +23,11 @@ import java.util.Map;
  * */
 public class BasicIndexParser extends AbstractIndexParser {
     @Override
-    public List<Document> parseData(RequestIndexData indexData) {
+    public List<Document> parseData(CommonRequestData indexData) {
 
         List<Document> result = new ArrayList<>();
-
-        indexData.getList().stream().forEach(row -> {
+        RequestListData listData = (RequestListData) indexData;
+        listData.getList().stream().forEach(row -> {
             Document doc = new Document();
             ((List) row).stream().forEach(m -> {
                 Map<String, Object> map = (Map<String, Object>) m;

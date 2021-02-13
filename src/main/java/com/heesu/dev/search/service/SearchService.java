@@ -25,16 +25,17 @@ public class SearchService {
 
             //  --------
 
-            Term term = new Term("name", "heesu");
+            Term term = new Term("LatM", "5");
             Query query = new TermQuery(term);
 
-            TopDocs docs = searcher.search(query, 10);
+
+            TopDocs docs = searcher.search(query, 200);
             System.out.println("hit : " + docs.totalHits);
 
             for(ScoreDoc sd : docs.scoreDocs) {
                 Document d = searcher.doc(sd.doc);
-                System.out.println("name : " + d.get("name"));
-                System.out.println("age : " + d.get("age"));
+
+                System.out.println("city : " + d.get("City"));
 
             }
 

@@ -8,10 +8,7 @@ import java.util.Map;
 
 @Getter
 @Setter
-public class RequestIndexData {
-
-    private String Analyzer = "";
+public class RequestListData extends CommonRequestData{
 
     private List list;
-
 }
