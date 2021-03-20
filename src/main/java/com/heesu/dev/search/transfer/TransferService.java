@@ -1,2 +1,4 @@
-package com.heesu.dev.search.transfer;public class TransferService {
+package com.heesu.dev.search.transfer;
+
+public class TransferService {
 }

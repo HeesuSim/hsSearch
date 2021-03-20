@@ -5,6 +5,8 @@ import com.heesu.dev.search.core.IndexAccessor;
 import com.heesu.dev.search.core.indexer.parser.IndexPaserFactory;
 import com.heesu.dev.search.core.indexer.parser.AbstractIndexParser;
 import com.heesu.dev.search.core.indexer.parser.IndexParserType;
+import com.heesu.dev.search.entity.search.ResponseData;
+import lombok.RequiredArgsConstructor;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +17,16 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class IndexService {
 
-
-    @Autowired
-    private IndexAccessor indexAccessor;
+    private final IndexAccessor indexAccessor;
 
     @PostConstruct
     public void init() {
     }
 
-    public boolean addDocuments(CommonRequestData indexData, IndexParserType type) {
+    public ResponseData addDocuments(CommonRequestData indexData, IndexParserType type) {
 
         try {
             IndexWriter indexWriter = indexAccessor.getWriter();
@@ -38,7 +39,6 @@ public class IndexService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return true;
-
+        return new ResponseData(ResponseData.RESULT_OK);
     }
 }

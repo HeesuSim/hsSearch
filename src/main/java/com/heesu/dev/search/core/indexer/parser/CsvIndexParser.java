@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
 
 public class CsvIndexParser extends AbstractIndexParser{
 
-    Logger logger = LoggerFactory.getLogger(CsvIndexParser.class);
+    private Logger logger = LoggerFactory.getLogger(CsvIndexParser.class);
 
     @Override
     public List<Document> parseData(CommonRequestData indexData) {
@@ -48,8 +48,8 @@ public class CsvIndexParser extends AbstractIndexParser{
                                 String key = headers[i].trim();
                                 String value = fields[i].trim();
 
-                                // data saved from csv file has default analyzed, stored value of boolean true.
-                                Field field = new Field(key, value, getIndexableFieldType(true, true));
+                                // data saved from csv file has default not analyzed, stored value of boolean true.
+                                Field field = new Field(key, value, getIndexableFieldType(false, true));
                                 doc.add(field);
                             });
                 }

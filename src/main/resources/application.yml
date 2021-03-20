@@ -1,2 +1,9 @@
 config:
   index-path: /Users/heesu/Documents/dev/indexes
+
+
+  # send data when indexing via TCP, UDP, TLS
+  transfer:
+    protocol: TCP
+    host: 127.0.0.1
+    port: 9001

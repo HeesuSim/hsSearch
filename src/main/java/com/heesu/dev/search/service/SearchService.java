@@ -1,11 +1,12 @@
 package com.heesu.dev.search.service;
 
 import com.heesu.dev.search.core.IndexAccessor;
-import com.heesu.dev.search.entity.config.HsSearchConfig;
-import com.heesu.dev.search.entity.search.SearchResult;
+import com.heesu.dev.search.entity.search.ResponseData;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +15,13 @@ import java.io.IOException;
 @Service
 public class SearchService {
 
+    private Logger logger = LoggerFactory.getLogger(SearchService.class);
 
     @Autowired
     private IndexAccessor indexAccessor;
 
-    public SearchResult searchAll() {
-        SearchResult result = new SearchResult();
+    public ResponseData searchAll() {
+        ResponseData result = new ResponseData();
         try {
             IndexSearcher searcher = indexAccessor.getSearcher();
 

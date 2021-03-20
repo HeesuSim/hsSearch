@@ -7,9 +7,19 @@ import java.util.List;
 
 @Getter
 @Setter
-public class SearchResult {
+public class ResponseData {
 
-    private boolean result;
+    public static String RESULT_OK = "ok";
+    public static String RESULT_FAIL = "fail";
+
+    public ResponseData(){
+    }
+
+    public ResponseData(String result) {
+        this.result = result;
+    }
+
+    private String result;
     private String message;
     private List resultData;
 

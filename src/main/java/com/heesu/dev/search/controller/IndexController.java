@@ -1,9 +1,10 @@
 package com.heesu.dev.search.controller;
 
+import com.heesu.dev.search.entity.config.HsSearchConfig;
 import com.heesu.dev.search.entity.index.RequestFileData;
 import com.heesu.dev.search.entity.index.RequestListData;
 import com.heesu.dev.search.core.indexer.parser.IndexParserType;
-import com.heesu.dev.search.entity.search.SearchResult;
+import com.heesu.dev.search.entity.search.ResponseData;
 import com.heesu.dev.search.service.IndexService;
 import com.heesu.dev.search.service.SearchService;
 import lombok.RequiredArgsConstructor;
@@ -18,16 +19,17 @@ public class IndexController {
 
     private final IndexService indexService;
     private final SearchService searchService;
+    private final HsSearchConfig hsSearchConfig;
 
     @PostMapping(value = "/documents")
-    public String add(@RequestBody RequestListData data) {
+    public String addDocuments(@RequestBody RequestListData data) {
         indexService.addDocuments(data, IndexParserType.Basic);
         return "ok";
     }
 
     @GetMapping(value = "/documents")
-    public SearchResult searchAll() {
-
+    public ResponseData searchAll() {
+        System.out.println(hsSearchConfig.toString());
         return searchService.searchAll();
     }
 
@@ -38,6 +40,7 @@ public class IndexController {
         RequestFileData data = new RequestFileData();
         data.setFile(file);
         indexService.addDocuments(data, IndexParserType.CSV);
+
         return "ok";
     }
 
